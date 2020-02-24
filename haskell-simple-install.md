@@ -137,7 +137,7 @@ You add dependencies in `first-project.cabal`, and you can run the code by just 
 The rest you will learn in the beginner's course. Have fun!
 
 
-#### Some remarks about Cabal on Windows
+### Some remarks about Cabal on Windows
 
 **Skip this if you just want to set up your Haskell tooling**. This is more of an explanation why we did the setup the way described above.
 
