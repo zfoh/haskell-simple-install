@@ -2,7 +2,7 @@
 
 This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
-We describe only _"one way to do it"_, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to learn the language we all love.
+We describe only _one way to do it_, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to learn the language we all love.
 
 Of course there are other ways you can do set up a Haskell dev environment, so if you already have some experience setting up your favourite build system and editor plugins then do it your way.
 
@@ -14,29 +14,29 @@ At the end we will have the following:
   - error messages right in your editor
 - **ghc** - the Glasgow Haskell Compiler.
 - **ghci**, a REPL to interactively type in code and explore.
-- **ghcid** (optional) for monitoring your code for changes and automatically recompiling, giving you blazing fast feedback and error messages.
+- **ghcid** (optional) for monitoring your code for changes and automatically recompiling, giving you fast feedback and error messages.
 - **ghcide** for the IDE features in VSCode mentioned above.
 - **cabal** to manage dependencies and build your project.
 - On Linux and Mac: **ghcup** to manage GHC versions, and help install Cabal.
-- On Windows: The Haskell Platform which bundles GHC, Cabal and some tools.
+- On Windows: The **Haskell Platform**, which bundles GHC, Cabal and some tools.
 
-If you just want to get started, just jump straight to the install instructions for your operating system:
+If you just want to get started, then please read the [Prerequisites](Prerequisites), and then just jump straight to the install instructions for your operating system:
 
 - [Linux](Linux)
 - [MacOS](MacOS)
 - [Windows](Windows)
 
 
-#### Note
+### Note:
 
-If you already have some programming experience, then developing Haskell will feel slightly different, because the better compiler guarantees give us a different approach to getting fast feedback on what our code does.
+If you already have some programming experience, then developing Haskell will feel different. Generally we have a different approach to getting feedback on our code.
 
 For example it's not common to litter our code with `print()` or `console.log()` statements, or set breakpoints, like you might do in other languages.
 
 Instead:
 
 - we use `ghcid` to watch our code for changes and recompile continuously, giving us success or error messages within a fraction of a second.
-- types + purity make sure that our code works if it compiles. So no more running the entire program to check if it works, just to find out that `calculate(ponies)` fails because `ponies` was `null`.
+- types + purity give us more guarantees if the code compiles. So no more running the entire program to check if it works, just to find out that `calculate(ponies)` fails because `ponies` was `null`.
 - we compose our programs out of smaller, often side-effect-free building blocks, which we can try out and test individually in the REPL.
 
 So it might need some getting used to, but with the right tools the modern Haskell development experience is really nice!
@@ -46,7 +46,15 @@ So it might need some getting used to, but with the right tools the modern Haske
 
 ## Linux
 
+### Minimal setup
+
+### More features
+
 ## MacOS
+
+### Minimal setup
+
+### More features
 
 ## Windows
 
@@ -60,7 +68,7 @@ This was tested on Windows 10.
 
 Try it out with the following hello world program:
 
-```
+```haskell
 module Hello where
 
 main = putStrLn "sup"
@@ -70,7 +78,8 @@ Save it as `Hello.hs` somewhere, and execute `runghc Hello.hs` in the commandlin
 
 > We recommend you use **Powershell** when you need to execute stuff in the commandline. If that's not included in your version of Windows, then you can use the normal **Command Prompt** (`cmd.exe`) as well.
 
-### More features setup
+
+### More features
 
 This allows you to set up projects with multiple source code files, external library dependencies, editor integration, etc.
 
@@ -101,7 +110,7 @@ You can now create new projects with `cabal init` 🎉
 
 #### 3
 
-Final step: modern editor integration. The best way to do this in 2020 is to install ghcide:
+Final step: editor integration. The best way to do this in 2020 is to install **ghcide**:
 
 ```
 cabal install ghcide --install-method=copy --overwrite-policy=always
@@ -130,7 +139,7 @@ The rest you will learn in the beginner's course. Have fun!
 
 #### Some remarks about Cabal on Windows
 
-**Note**: skip this if you just want to set up your Haskell tooling. This is more of an explanation why we did the setup the way described above.
+**Skip this if you just want to set up your Haskell tooling**. This is more of an explanation why we did the setup the way described above.
 
 The reason we are downloading a pre-compiled cabal 3 instead of doing the more canonical `cabal v2-install Cabal cabal-install` is because
 
