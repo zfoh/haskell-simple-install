@@ -2,26 +2,27 @@
 
 This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
-We describe only _"one way to do it"_, in order to simplify the process for beginners. The goal is to get started **fast** and make it **pleasant** to learn the language we all love.
+We describe only _"one way to do it"_, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to learn the language we all love.
 
-Of course there are other ways you can do set up a Haskell dev environment, so if you already have some experience setting up your favourite build system and editor plugins then this guide might not be for you.
+Of course there are other ways you can do set up a Haskell dev environment, so if you already have some experience setting up your favourite build system and editor plugins then do it your way.
 
 At the end we will have the following:
 
-- **[Visual Studio Code](https://code.visualstudio.com/)** with a plugin that gives you all the modern conveniences, like:
-  - type signatures and documentation on hover.
-  - autocomplete.
-  - jump to definition, rename variable and function names, etc.
+- **[Visual Studio Code](https://code.visualstudio.com/)** with plugins that gives you modern conveniences, like:
+  - type signatures, documentation on hover, autocomplete.
+  - jump to definition, rename variable and function names.
+  - error messages right in your editor
 - **ghc** - the Glasgow Haskell Compiler.
 - **ghci**, a REPL to interactively type in code and explore.
-- **ghcid** for monitoring your code for changes and automatically recompiling, giving you blazing fast feedback and error messages.
+- **ghcid** (optional) for monitoring your code for changes and automatically recompiling, giving you blazing fast feedback and error messages.
 - **ghcide** for the IDE features in VSCode mentioned above.
 - **cabal** to manage dependencies and build your project.
-- (tbd: ghcup?)
+- On Linux and Mac: **ghcup** to manage GHC versions, and help install Cabal.
+- On Windows: The Haskell Platform which bundles GHC, Cabal and some tools.
 
-If you already have some programming experience, then developing Haskell will feel slightly different, because the better compiler guarantees give us a different approach to getting fast feedback on what our code does.
+> Note: If you already have some programming experience, then developing Haskell will feel slightly different, because the better compiler guarantees give us a different approach to getting fast feedback on what our code does.
 
-For example it's not common to litter our code with `print` statements, or set breakpoints, like you might do in other languages.
+> For example it's not common to litter our code with `print()` or `console.log()` statements, or set breakpoints, like you might do in other languages.
 
 But rest assured, the modern Haskell IDE experience has gotten extremly nice!
 
@@ -73,7 +74,7 @@ Next we install the latest version of Cabal. Right now the Haskell Platform uses
 - Execute `cabal update` to refresh its package index.
 - Execute `cabal user-config update` to upgrade the version of Cabal's config file.
 
-The last command also tells you _where_ the config is. I strongly suggest you open it and add the following line:
+The last command also tells you _where_ the config is. For exampe mine is at `C:\Users\taylorswift\AppData\Roaming\cabal\config`. I strongly suggest you open it and add the following line:
 
 ```
 write-ghc-environment-files: never
@@ -95,7 +96,7 @@ This will compile for quite a while, so go get a coffee or make a new friend.
 
 At the end you will have a new executable/command called `ghcid`.
 
-For your information, the executables are "installed" in `C:\Users\your-username-here\AppData\Roaming\cabal\bin`, which the installation of Haskell Platform made sure to put in your Windows `%PATH%`
+For your information, the executables are installed in `C:\Users\your-username-here\AppData\Roaming\cabal\bin`, which Haskell Platform made sure to put in your Windows `%PATH%`.
 
 Create a new project by doing the following in your commandline:
 
@@ -103,7 +104,7 @@ Create a new project by doing the following in your commandline:
 - `cd first-project`
 - `cabal init`
 
-Open this folder in VSCode, and install the extension **ghcide** from the VSCode Marketplace. Done.
+Open this folder in VSCode, and install the extension **ghcide** from the VSCode Marketplace. You're done.
 
 How can you know this all worked? You will be able to see definitions when hovering with your mouse, you can introduce an error and see it highlighted red in the code, and you will get autocompletion.
 
@@ -134,29 +135,10 @@ extra-prog-path: C:\Program Files\Haskell Platform\8.6.5\msys\usr\bin,
                  C:\Users\jurichome\AppData\Roaming\cabal\bin
 ```
 
-Not only do the line breaks and commas make no sense, they also prevent Cabal from seeing MinGW and MSYS, leading to an error when trying to compile.
+Not only do the line breaks and commas make little sense, they also prevent Cabal from seeing MinGW and MSYS, leading to an error when trying to compile some packages.
 
 It can be assumed that this will be fixed in the future, and moreover **Haskell Platform** will probably ship with Cabal 3 directly some time in the future.
 
-
-
-- `C:\Users\your-username-here\AppData\Roaming\cabal\bin`
-- `C:\Program Files\Haskell Platform\8.6.5\lib\extralibs\bin`
-- `cabal user-config update`
-
-- Update **Cabal** (your tool for managing dependencies and building projects) to the latest version. Execute these in the commandline:
-    - `cabal v2-update`.
-    - **Before** you run the next step, you currently need to fix something in the Cabal configuration. Please follow the instructions [below](#Cabal-on-Windows-config-adjustment).
-    - `cabal v2-install Cabal cabal-install`. Get a coffee while it compiles, or go make a new friend.
-    - verify that you have version 3: `cabal --version`.
-    - you can now create a new project folder with `cabal init` 🎉
-- Install 
-
-#### Cabal on Windows config adjustment
-
-Right now it's good to make some small adjustments to the Cabal config file.
-
-Find out where it lives with `cabal user-config init` and open it in your editor of choice.
 
 ## Alternatives
 
