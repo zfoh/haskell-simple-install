@@ -1,4 +1,4 @@
-# ZuriHac 2020 Haskell install instructions
+# Haskell install instructions - ZuriHac 2020
 
 This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
@@ -8,10 +8,10 @@ Of course there are other ways you can do set up a Haskell dev environment, so i
 
 At the end we will have the following:
 
-- **[Visual Studio Code](https://code.visualstudio.com/)** with plugins that gives you modern conveniences, like:
-  - type signatures, documentation on hover, autocomplete.
+- **[Visual Studio Code](https://code.visualstudio.com/)** with plugins that gives you features like:
+  - type signatures and documentation on hover, autocomplete.
   - jump to definition, rename variable and function names.
-  - error messages right in your editor
+  - error messages right in your editor.
 - **ghc** - the Glasgow Haskell Compiler.
 - **ghci**, a REPL to interactively type in code and explore.
 - **ghcid** (optional) for monitoring your code for changes and automatically recompiling, giving you fast feedback and error messages.
@@ -20,11 +20,11 @@ At the end we will have the following:
 - On Linux and Mac: **ghcup** to manage GHC versions, and help install Cabal.
 - On Windows: The **Haskell Platform**, which bundles GHC, Cabal and some tools.
 
-If you just want to get started, then please read the [Prerequisites](Prerequisites), and then just jump straight to the install instructions for your operating system:
+If you just want to get started, then please read the [Prerequisites](#Prerequisites), and then just jump straight to the install instructions for your operating system:
 
-- [Linux](Linux)
-- [MacOS](MacOS)
-- [Windows](Windows)
+- [Linux](#Linux)
+- [MacOS](#MacOS)
+- [Windows](#Windows)
 
 
 ### Note:
@@ -156,19 +156,9 @@ extra-include-dirs: C:\Program,
                     Platform\8.6.5\mingw\include
 extra-lib-dirs: C:\Program,Files\Haskell,Platform\8.6.5\mingw\lib
 extra-prog-path: C:\Program Files\Haskell Platform\8.6.5\msys\usr\bin,
-                 C:\Users\jurichome\AppData\Roaming\cabal\bin
+                 C:\Users\justinbieber\AppData\Roaming\cabal\bin
 ```
 
-Not only do the line breaks and commas make little sense, they also prevent Cabal from seeing MinGW and MSYS, leading to an error when trying to compile some packages.
+The line breaks and commas make no sense, and they prevent Cabal from seeing MinGW and MSYS, leading to an error when trying to compile packages with a `./configure` step like `network`.
 
-It can be assumed that this will be fixed in the future, and moreover **Haskell Platform** will probably ship with Cabal 3 directly some time in the future.
-
-
-## Alternatives
-
-- vim
-- intero (?)
-- repl.it
-- stack instead of cabal
-
-
+It can be assumed that this will be fixed in the future, and moreover **Haskell Platform** will probably ship directly with Cabal 3 at some point.
