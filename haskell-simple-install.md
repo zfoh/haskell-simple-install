@@ -2,6 +2,7 @@
 
 ### Table of contents
 
+- [Introduction](#Introduction)
 - [Prerequisites](#Prerequisites)
 - [Linux / MacOS](#Linux-and-MacOS)
     - [Minimal setup](#minimal-setup)
@@ -9,6 +10,8 @@
 - [Windows](#Windows)
     - [Minimal setup](#minimal-setup-1)
     - [Fancy features](#Fancy-features-1)
+
+## Introduction
 
 This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
