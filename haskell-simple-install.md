@@ -69,9 +69,9 @@ The good news is that these are universal skills that help you be an effective p
 
 > Tested on Ubuntu 18.04 and MacOS Mojave
 
-If the command below fails because you don't have `curl` installe, then consider using [Homebrew]([https://brew.sh/](<https://brew.sh/>)) on Mac, or `sudo apt install curl` on Ubuntu/Debian. If you're using another distro then I'm sure you know what to do.
+For the command below you need to have `curl` installed. Consider using [Homebrew]([https://brew.sh/](<https://brew.sh/>)) (`brew install curl`) on Mac, or `sudo apt install curl` on Ubuntu/Debian. If you're using another distro then I'm sure you know what to do.
 
-On Ubuntu you might also need to install `libgmp` with `sudo apt install libgmp-dev`.
+On Ubuntu you also need to install `libgmp` with `sudo apt install libgmp-dev`.
 
 Install **ghcup** as per the [official instructions](https://www.haskell.org/ghcup/):
 
@@ -79,11 +79,11 @@ Install **ghcup** as per the [official instructions](https://www.haskell.org/ghc
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
 
-It will take a while to download GHC and Cabal, and you need to press Enter to confirm a couple of times. When it asks you to modify your `.bashrc`, enter YES and continue. If for some reason you missed that step, you can also just add the line `source ~/.ghcup/env` at the end of your `.bashrc` file in your home directory.
+It will take a while to download GHC and Cabal, and you need to press Enter to confirm a couple of times. When it asks you to modify your `.bashrc`, enter YES and continue. If for some reason you missed that step, you can also just add the line `source ~/.ghcup/env` at the end of your `.bashrc` in your home directory. There is more information in the [Readme](https://gitlab.haskell.org/haskell/ghcup/blob/master/README.md) if you need it.
 
 For the changes to take effect, either restart all your terminal windows, or type `source ~/.bashrc` in every one of them.
 
-**That's it!** You now have Cabal 3 and a pretty recent version of GHC on your machine. You can see which one by typing `ghcup list`.
+**That's it!** You now have Cabal 3 and a recent version of GHC on your machine. You can see which one by typing `ghcup list`.
 
 Play around in an interactive REPL with `cabal repl`.
 
@@ -99,6 +99,24 @@ Run it with `runghc Hi.hs`. You're all set!
 
 
 ### Fancy features
+
+#### 1
+
+- Install Visual Studio Code from https://code.visualstudio.com/.
+- Launch VS Code, and install the **Haskell Syntax Highlighting** plugin. Open `Hi.hs` from before and enjoy the pretty colours.
+
+#### 2
+
+Install **[ghcide](https://github.com/digital-asset/ghcide)** with
+
+```
+cabal install ghcide
+```
+
+This will compile from source, so it takes a while. Go for a coffee or help the next person out that's trying to get this far.
+
+> Note: it only makes sense to **install tools** with `cabal-install`, not libraries. Later you'll learn how to add library dependencies locally to your projects.
+
 
 ## Windows
 
@@ -128,7 +146,7 @@ This allows you to set up projects with multiple source code files, external lib
 
 #### 1
 
-- Install Visual Studio Code from https://code.visualstudio.com/
+- Install Visual Studio Code from https://code.visualstudio.com/.
 - Launch VS Code, and install the **Haskell Syntax Highlighting** plugin. Open `Hello.hs` from before and admire the shiny colours.
 
 #### 2
