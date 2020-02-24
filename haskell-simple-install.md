@@ -13,7 +13,7 @@
 
 ## Introduction
 
-This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
+This guide aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
 We describe only _one way to do it_, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to learn the language we all love.
 
@@ -27,7 +27,7 @@ At the end we will have the following:
   - error messages right in your editor.
 - **ghc** - the Glasgow Haskell Compiler.
 - **ghci**, a REPL to interactively type in code and explore.
-- **[ghcid](https://github.com/ndmitchell/ghcid)** (optional) for monitoring your code for changes and automatically recompiling, giving you fast feedback and error messages.
+- **[ghcid](https://github.com/ndmitchell/ghcid)** for recompiling your code on changes, giving you fast feedback and error messages.
 - **[ghcide](https://github.com/digital-asset/ghcide)** for the IDE features in VS Code mentioned above.
 - **cabal** to manage dependencies and build your project.
 - On Linux and Mac: **[ghcup](https://www.haskell.org/ghcup/)** to manage GHC versions, and help install Cabal.
@@ -51,7 +51,7 @@ Instead:
 - types + purity give us more guarantees if the code compiles. So no more running the entire program to check if it works, just to find out that `calculate(ponies)` fails because `ponies` was `null`.
 - we compose our programs out of smaller, often side-effect-free building blocks, which we can try out and test individually in the REPL.
 
-So it might need some getting used to, but with the right tools the modern Haskell development experience is really nice!
+So it might need some getting used to, but with the right tools the current Haskell development experience is really nice!
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ The good news is that these are universal skills that help you be an effective p
 
 For the command below you need to have `curl` installed. Consider using [Homebrew]([https://brew.sh/](<https://brew.sh/>)) (`brew install curl`) on Mac, or `sudo apt install curl` on Ubuntu/Debian. If you're using another distro then I'm sure you know what to do.
 
-On Ubuntu you also need to install `libgmp` with `sudo apt install libgmp-dev`.
+On Ubuntu you also need to install some additional libraries with `sudo apt install libgmp-dev libtinfo-dev`.
 
 Install **ghcup** as per the [official instructions](https://www.haskell.org/ghcup/):
 
@@ -85,6 +85,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 It will take a while to download GHC and Cabal, and you need to press Enter to confirm a couple of times. When it asks you to modify your `.bashrc`, enter YES and continue. If for some reason you missed that step, you can also just add the line `source ~/.ghcup/env` at the end of your `.bashrc` in your home directory. There is more information in the [Readme](https://gitlab.haskell.org/haskell/ghcup/blob/master/README.md) if you need it.
 
 For the changes to take effect, either restart all your terminal windows, or type `source ~/.bashrc` in every one of them.
+
+> If you're on zsh of fish instead of bash then you're on your own, but you'll probably know what to do.
 
 **That's it!** You now have Cabal 3 and a recent version of GHC on your machine. You can see which one by typing `ghcup list`.
 
@@ -105,10 +107,30 @@ Run it with `runghc Hi.hs`. You're all set!
 
 #### 1
 
+You can already create proper Haskell projects by doing the following in your commandline:
+
+- `mkdir first-project`
+- `cd first-project`
+- `cabal init`
+
+You'll see a couple of new files and folders. Edit `Main.hs` and run your code by typing `cabal run` or `cabal exec first-project`. The file `first-project.cabal` is where you will add your dependencies.
+
+One small thing: It's probably a good idea to generate a cabal config file with `cabal user-config init`. It will tell you the location, and I warmly recommend you add the following line to it:
+
+```
+write-ghc-environment-files: never
+```
+
+Ok, let's get some slick editor integration running.
+
+
+#### 2
+
 - Install Visual Studio Code from https://code.visualstudio.com/.
 - Launch VS Code, and install the **Haskell Syntax Highlighting** plugin. Open `Hi.hs` from before and enjoy the pretty colours.
 
-#### 2
+
+#### 3
 
 Install **[ghcide](https://github.com/digital-asset/ghcide)** with
 
@@ -116,9 +138,16 @@ Install **[ghcide](https://github.com/digital-asset/ghcide)** with
 cabal install ghcide
 ```
 
-This will compile from source, so it takes a while. Go for a coffee or help the next person out that's trying to get this far.
+This will compile from source, so it takes a while. Go for a tea or help the next person out that's trying to get this far.
 
 > Note: it only makes sense to **install tools** with `cabal-install`, not libraries. Later you'll learn how to add library dependencies locally to your projects.
+
+When this is done, you can install the **[ghcide extension](https://marketplace.visualstudio.com/items?itemName=DigitalAssetHoldingsLLC.ghcide)** in VS Code.
+
+**Done.** Open a Haskell project folder in VS Code and try hovering over stuff, use autocomplete, and maybe even add a dependency or two.
+
+
+#### 4
 
 
 ## Windows
@@ -143,14 +172,17 @@ Save it as `Hello.hs` somewhere, and execute `runghc Hello.hs` in the commandlin
 
 > We recommend you use **Powershell** when you need to execute stuff in the commandline. If that's not included in your version of Windows, then you can use the normal **Command Prompt** (`cmd.exe`) as well.
 
+
 ### Fancy features
 
 This allows you to set up projects with multiple source code files, external library dependencies, editor integration, etc.
+
 
 #### 1
 
 - Install Visual Studio Code from https://code.visualstudio.com/.
 - Launch VS Code, and install the **Haskell Syntax Highlighting** plugin. Open `Hello.hs` from before and admire the shiny colours.
+
 
 #### 2
 
@@ -172,6 +204,7 @@ Later, for compiling some packages like `network`, this config file also needs t
 
 You can now create new projects with `cabal init` 🎉
 
+
 #### 3
 
 Final step: editor integration. The best way to do this in 2020 is to install **ghcide**:
@@ -192,13 +225,14 @@ Create a new project by doing the following in your commandline:
 - `cd first-project`
 - `cabal init`
 
-Open this folder in VS Code, and install the extension **ghcide** from the VS Code Marketplace. You're done.
+Open this folder in VS Code, and install the **[ghcide extension](https://marketplace.visualstudio.com/items?itemName=DigitalAssetHoldingsLLC.ghcide)** from the VS Code Marketplace. You're done.
 
 How can you know this all worked? You will be able to see definitions when hovering with your mouse, you can introduce an error and see it highlighted red in the code, and you will get autocompletion.
 
 You add dependencies in `first-project.cabal`, and you can run the code by just typing `cabal run`. The thing that will be executed is always your `main :: IO ()` function.
 
 The rest you will learn in the beginner's course. Have fun!
+
 
 ### Some remarks about Cabal on Windows
 
@@ -225,6 +259,7 @@ extra-prog-path: C:\Program Files\Haskell Platform\8.6.5\msys\usr\bin,
 The line breaks and commas make no sense, and they prevent Cabal from seeing MinGW and MSYS, leading to an error when trying to compile packages with a `./configure` step like `network`.
 
 It can be assumed that this will be fixed in the future, and moreover **Haskell Platform** will probably ship directly with Cabal 3 at some point.
+
 
 ## Other Editors
 
