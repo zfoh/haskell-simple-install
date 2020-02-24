@@ -5,10 +5,10 @@
 - [Prerequisites](#Prerequisites)
 - [Linux / MacOS](#Linux-and-MacOS)
     - [Minimal setup](#minimal-setup)
-    - [More features](#more-features)
+    - [Fancy features](#Fancy-features)
 - [Windows](#Windows)
     - [Minimal setup](#minimal-setup-1)
-    - [More features](#more-features-1)
+    - [Fancy features](#Fancy-features-1)
 
 This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
@@ -67,13 +67,44 @@ The good news is that these are universal skills that help you be an effective p
 
 ### Minimal setup
 
-### More features
+> Tested on Ubuntu 18.04 and MacOS Mojave
+
+If the command below fails because you don't have `curl` installe, then consider using [Homebrew]([https://brew.sh/](<https://brew.sh/>)) on Mac, or `sudo apt install curl` on Ubuntu/Debian. If you're using another distro then I'm sure you know what to do.
+
+On Ubuntu you might also need to install `libgmp` with `sudo apt install libgmp-dev`.
+
+Install **ghcup** as per the [official instructions](https://www.haskell.org/ghcup/):
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+```
+
+It will take a while to download GHC and Cabal, and you need to press Enter to confirm a couple of times. When it asks you to modify your `.bashrc`, enter YES and continue. If for some reason you missed that step, you can also just add the line `source ~/.ghcup/env` at the end of your `.bashrc` file in your home directory.
+
+For the changes to take effect, either restart all your terminal windows, or type `source ~/.bashrc` in every one of them.
+
+**That's it!** You now have Cabal 3 and a pretty recent version of GHC on your machine. You can see which one by typing `ghcup list`.
+
+Play around in an interactive REPL with `cabal repl`.
+
+Run a Hello World program by saving the following to a file called `Hi.hs`:
+
+```haskell
+module Hi where
+
+main = putStrLn "hey"
+```
+
+Run it with `runghc Hi.hs`. You're all set!
+
+
+### Fancy features
 
 ## Windows
 
 ### Minimal setup
 
-This was tested on Windows 10.
+> Tested on Windows 10.
 
 - Install the Haskell Platform from https://www.haskell.org/platform/#windows
 - See if your installation worked by either launching GHCi. That's your interactive prompt.
@@ -91,7 +122,7 @@ Save it as `Hello.hs` somewhere, and execute `runghc Hello.hs` in the commandlin
 
 > We recommend you use **Powershell** when you need to execute stuff in the commandline. If that's not included in your version of Windows, then you can use the normal **Command Prompt** (`cmd.exe`) as well.
 
-### More features
+### Fancy features
 
 This allows you to set up projects with multiple source code files, external library dependencies, editor integration, etc.
 
