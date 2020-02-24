@@ -1,5 +1,15 @@
 # Haskell install instructions - ZuriHac 2020
 
+### Table of contents
+
+- [Prerequisites](#Prerequisites)
+- [Linux / MacOS](#Linux-and-MacOS)
+    - [Minimal setup](#minimal-setup)
+    - [More features](#more-features)
+- [Windows](#Windows)
+    - [Minimal setup](#minimal-setup-1)
+    - [More features](#more-features-1)
+
 This guide that aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
 We describe only _one way to do it_, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to learn the language we all love.
@@ -14,22 +24,21 @@ At the end we will have the following:
   - error messages right in your editor.
 - **ghc** - the Glasgow Haskell Compiler.
 - **ghci**, a REPL to interactively type in code and explore.
-- **ghcid** (optional) for monitoring your code for changes and automatically recompiling, giving you fast feedback and error messages.
-- **ghcide** for the IDE features in VSCode mentioned above.
+- **[ghcid](https://github.com/ndmitchell/ghcid)** (optional) for monitoring your code for changes and automatically recompiling, giving you fast feedback and error messages.
+- **[ghcide](https://github.com/digital-asset/ghcide)** for the IDE features in VS Code mentioned above.
 - **cabal** to manage dependencies and build your project.
-- On Linux and Mac: **ghcup** to manage GHC versions, and help install Cabal.
-- On Windows: The **Haskell Platform**, which bundles GHC, Cabal and some tools.
+- On Linux and Mac: **[ghcup](https://www.haskell.org/ghcup/)** to manage GHC versions, and help install Cabal.
+- On Windows: The **[Haskell Platform](https://www.haskell.org/platform/)**, which bundles GHC, Cabal and some tools.
 
-If you just want to get started, then please read the [Prerequisites](#Prerequisites), and then just jump straight to the install instructions for your operating system:
+If you just want to get started, then please read the [prerequisites](#Prerequisites), then just jump straight to the install instructions for your operating system:
 
 - [Linux](#Linux)
 - [MacOS](#MacOS)
 - [Windows](#Windows)
 
-
 ### Note:
 
-If you already have some programming experience, then developing Haskell will feel different. Generally we have a different approach to getting feedback on our code.
+If you already have some programming experience, then developing Haskell might feel different. Generally we have a different approach to getting feedback on our code.
 
 For example it's not common to litter our code with `print()` or `console.log()` statements, or set breakpoints, like you might do in other languages.
 
@@ -41,16 +50,20 @@ Instead:
 
 So it might need some getting used to, but with the right tools the modern Haskell development experience is really nice!
 
-
 ## Prerequisites
 
-## Linux
+Even in 2020 programming still requires some familiarity with the **command-line**. Haskell is no exception, so you should know how to use the **Terminal** on your computer. You don't need to be a command-line-ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
 
-### Minimal setup
+If you're absolutely new to this, we recommend you take some time to familiarise yourself with the following:
 
-### More features
+- on MacOS: install and use [iTerm2](https://iterm2.com/).
+- on Windows: use Powershell.
+- on Linux: use whatever terminal your distro comes with.
 
-## MacOS
+The good news is that these are universal skills that help you be an effective programmer across _all languages_.
+
+
+## Linux and MacOS
 
 ### Minimal setup
 
@@ -78,7 +91,6 @@ Save it as `Hello.hs` somewhere, and execute `runghc Hello.hs` in the commandlin
 
 > We recommend you use **Powershell** when you need to execute stuff in the commandline. If that's not included in your version of Windows, then you can use the normal **Command Prompt** (`cmd.exe`) as well.
 
-
 ### More features
 
 This allows you to set up projects with multiple source code files, external library dependencies, editor integration, etc.
@@ -86,7 +98,7 @@ This allows you to set up projects with multiple source code files, external lib
 #### 1
 
 - Install Visual Studio Code from https://code.visualstudio.com/
-- Launch VScode, and install the **Haskell Syntax Highlighting** plugin. Open `Hello.hs` from before and admire the shiny colours.
+- Launch VS Code, and install the **Haskell Syntax Highlighting** plugin. Open `Hello.hs` from before and admire the shiny colours.
 
 #### 2
 
@@ -128,14 +140,13 @@ Create a new project by doing the following in your commandline:
 - `cd first-project`
 - `cabal init`
 
-Open this folder in VSCode, and install the extension **ghcide** from the VSCode Marketplace. You're done.
+Open this folder in VS Code, and install the extension **ghcide** from the VS Code Marketplace. You're done.
 
 How can you know this all worked? You will be able to see definitions when hovering with your mouse, you can introduce an error and see it highlighted red in the code, and you will get autocompletion.
 
 You add dependencies in `first-project.cabal`, and you can run the code by just typing `cabal run`. The thing that will be executed is always your `main :: IO ()` function.
 
 The rest you will learn in the beginner's course. Have fun!
-
 
 ### Some remarks about Cabal on Windows
 
@@ -162,3 +173,7 @@ extra-prog-path: C:\Program Files\Haskell Platform\8.6.5\msys\usr\bin,
 The line breaks and commas make no sense, and they prevent Cabal from seeing MinGW and MSYS, leading to an error when trying to compile packages with a `./configure` step like `network`.
 
 It can be assumed that this will be fixed in the future, and moreover **Haskell Platform** will probably ship directly with Cabal 3 at some point.
+
+## Other Editors
+
+If you're eager to use something other than Visual Studio Code (vim, emacs, Sublime Text, Atom, etc), then the keyword to search for is "_Language Server Protocol_" (LSP). The [ghcide Readme](https://github.com/digital-asset/ghcide/blob/master/README.md) has instructions for a bunch of these. For emacs you might even consider [intero](https://github.com/chrisdone/intero).
