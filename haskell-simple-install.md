@@ -20,14 +20,29 @@ At the end we will have the following:
 - On Linux and Mac: **ghcup** to manage GHC versions, and help install Cabal.
 - On Windows: The Haskell Platform which bundles GHC, Cabal and some tools.
 
-> Note: If you already have some programming experience, then developing Haskell will feel slightly different, because the better compiler guarantees give us a different approach to getting fast feedback on what our code does.
+If you just want to get started, just jump straight to the install instructions for your operating system:
 
-> For example it's not common to litter our code with `print()` or `console.log()` statements, or set breakpoints, like you might do in other languages.
+- [Linux](Linux)
+- [MacOS](MacOS)
+- [Windows](Windows)
 
-But rest assured, the modern Haskell IDE experience has gotten extremly nice!
+
+#### Note
+
+If you already have some programming experience, then developing Haskell will feel slightly different, because the better compiler guarantees give us a different approach to getting fast feedback on what our code does.
+
+For example it's not common to litter our code with `print()` or `console.log()` statements, or set breakpoints, like you might do in other languages.
+
+Instead:
+
+- we use `ghcid` to watch our code for changes and recompile continuously, giving us success or error messages within a fraction of a second.
+- types + purity make sure that our code works if it compiles. So no more running the entire program to check if it works, just to find out that `calculate(ponies)` fails because `ponies` was `null`.
+- we compose our programs out of smaller, often side-effect-free building blocks, which we can try out and test individually in the REPL.
+
+So it might need some getting used to, but with the right tools the modern Haskell development experience is really nice!
 
 
-## prerequisites
+## Prerequisites
 
 ## Linux
 
