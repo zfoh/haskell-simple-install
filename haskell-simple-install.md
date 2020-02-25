@@ -16,9 +16,7 @@
 
 This guide aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
 
-We describe only _one way to do it_, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to learn the language we all love.
-
-Of course there are other ways you can do set up a Haskell dev environment, so if you already have some experience setting up your favourite build system and editor plugins then do it your way.
+We describe only **"one way to do it"**, in order to simplify the process for beginners. The goal is to get started quickly and make it pleasant to start writing the language we all love.
 
 At the end we will have the following:
 
@@ -43,15 +41,15 @@ If you just want to get started, then please read the [prerequisites](#Prerequis
 
 ## Prerequisites
 
-Even in 2020 programming still requires some familiarity with the **commandline**. Haskell is no exception, so you should know how to use the **Terminal** on your computer. You don't need to be a commandline-ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
+Most programming still requires some basic familiarity with the commandline. Haskell is no exception, so you should know how to use the terminal on your computer.
+
+This installation guide describes a bunch of commands that you should be able to type in and execute. You don't need to be a commandline-ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
 
 If you're absolutely new to this, we recommend you take some time to familiarise yourself with the following:
 
 - on MacOS: install and use [iTerm2](https://iterm2.com/).
 - on Windows: use Powershell.
 - on Linux: use whatever terminal your distro comes with.
-
-The good news is that these are universal skills that help you be an effective programmer across _all languages_.
 
 
 ## Linux and MacOS
