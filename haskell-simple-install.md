@@ -11,6 +11,7 @@
     - [Minimal setup](#minimal-setup-1)
     - [Fancy features](#Fancy-features-1)
 
+
 ## Introduction
 
 This guide aims to be a simple way to get a modern Haskell toolchain up and running on your computer.
@@ -26,7 +27,7 @@ At the end we will have the following:
   - jump to definition, rename variable and function names.
   - error messages right in your editor.
 - **ghc** - the Glasgow Haskell Compiler.
-- **ghci**, a REPL to interactively type in code and explore.
+- **ghci** - a REPL to interactively type in code and explore.
 - **[ghcid](https://github.com/ndmitchell/ghcid)** for recompiling your code on changes, giving you fast feedback and error messages.
 - **[ghcide](https://github.com/digital-asset/ghcide)** for the IDE features in VS Code mentioned above.
 - **cabal** to manage dependencies and build your project.
@@ -39,23 +40,10 @@ If you just want to get started, then please read the [prerequisites](#Prerequis
 - [MacOS](#MacOS)
 - [Windows](#Windows)
 
-### Note:
-
-If you already have some programming experience, then developing Haskell might feel different. Generally we have a different approach to getting feedback on our code.
-
-For example it's not common to litter our code with `print()` or `console.log()` statements, or set breakpoints, like you might do in other languages.
-
-Instead:
-
-- we use `ghcid` to watch our code for changes and recompile continuously, giving us success or error messages within a fraction of a second.
-- types + purity give us more guarantees if the code compiles. So no more running the entire program to check if it works, just to find out that `calculate(ponies)` fails because `ponies` was `null`.
-- we compose our programs out of smaller, often side-effect-free building blocks, which we can try out and test individually in the REPL.
-
-So it might need some getting used to, but with the right tools the current Haskell development experience is really nice!
 
 ## Prerequisites
 
-Even in 2020 programming still requires some familiarity with the **command-line**. Haskell is no exception, so you should know how to use the **Terminal** on your computer. You don't need to be a command-line-ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
+Even in 2020 programming still requires some familiarity with the **commandline**. Haskell is no exception, so you should know how to use the **Terminal** on your computer. You don't need to be a commandline-ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
 
 If you're absolutely new to this, we recommend you take some time to familiarise yourself with the following:
 
