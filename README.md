@@ -143,7 +143,7 @@ When this is done, you can install the **[ghcide extension](https://marketplace.
 > Tested on Windows 10.
 
 - Install the Haskell Platform from https://www.haskell.org/platform/#windows
-- See if your installation worked by either launching GHCi. That's your interactive prompt.
+- See if your installation worked by launching GHCi. That's your interactive prompt.
 - To run single Haskell Source (.hs) files you can use `runghc` from the command line.
 
 Try it out with the following hello world program:
