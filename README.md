@@ -41,9 +41,9 @@ If you just want to get started, then please read the [prerequisites](#Prerequis
 
 ## Prerequisites
 
-Most programming still requires some basic familiarity with the commandline. Haskell is no exception, so you should know how to use the terminal on your computer.
+Most programming still requires some basic familiarity with the command line. Haskell is no exception, so you should know how to use the terminal on your computer.
 
-This installation guide describes a bunch of commands that you should be able to type in and execute. You don't need to be a commandline-ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
+This installation guide describes a bunch of commands that you should be able to type in and execute. You don't need to be a command line ninja, but you'll be a lot more effective if you can change directories, copy/move files, list directory contents and a couple of other basic things.
 
 If you're absolutely new to this, we recommend you take some time to familiarise yourself with the following:
 
@@ -72,7 +72,7 @@ It will take a while to download GHC and Cabal, and you need to press Enter to c
 
 For the changes to take effect, either restart all your terminal windows, or type `source ~/.bashrc` in every one of them.
 
-> If you're on zsh of fish instead of bash then you're on your own, but you'll probably know what to do.
+> If you're on zsh or fish instead of bash then you're on your own, but you'll probably know what to do.
 
 **That's it!** You now have Cabal 3 and a recent version of GHC on your machine. You can see which one by typing `ghcup list`.
 
@@ -93,7 +93,7 @@ Run it with `runghc Hi.hs`. You're all set!
 
 #### 1
 
-You can already create proper Haskell projects by doing the following in your commandline:
+You can already create proper Haskell projects by doing the following in your command line:
 
 - `mkdir first-project`
 - `cd first-project`
@@ -144,7 +144,7 @@ When this is done, you can install the **[ghcide extension](https://marketplace.
 
 - Install the Haskell Platform from https://www.haskell.org/platform/#windows
 - See if your installation worked by either launching GHCi. That's your interactive prompt.
-- To run single Haskell Source (.hs) files you can use `runghc` from the commandline.
+- To run single Haskell Source (.hs) files you can use `runghc` from the command line.
 
 Try it out with the following hello world program:
 
@@ -154,9 +154,9 @@ module Hello where
 main = putStrLn "sup"
 ```
 
-Save it as `Hello.hs` somewhere, and execute `runghc Hello.hs` in the commandline.
+Save it as `Hello.hs` somewhere, and execute `runghc Hello.hs` in the command line.
 
-> We recommend you use **Powershell** when you need to execute stuff in the commandline. If that's not included in your version of Windows, then you can use the normal **Command Prompt** (`cmd.exe`) as well.
+> We recommend you use **Powershell** when you need to execute stuff in the command line. If that's not included in your version of Windows, then you can use the normal **Command Prompt** (`cmd.exe`) as well.
 
 
 ### Fancy features
@@ -205,7 +205,7 @@ At the end you will have a new executable/command called `ghcid`.
 
 For your information, the executables are installed in `C:\Users\your-username-here\AppData\Roaming\cabal\bin`, which Haskell Platform made sure to put in your Windows `%PATH%`.
 
-Create a new project by doing the following in your commandline:
+Create a new project by doing the following in your command line:
 
 - `mkdir first-project`
 - `cd first-project`
